@@ -33,6 +33,7 @@
                     <th>Queued</th>
                     <th>Sent</th>
                     <th>Errored</th>
+                    <th>ID</th>
                 </tr>
             </thead>
             <tbody>
@@ -47,6 +48,7 @@
                         <td>${dashboardStatus.queued}</td>
                         <td>${dashboardStatus.statistics[SENT]}</td>
                         <td class="errors" <c:if test="${dashboardStatus.statistics[ERROR] != 0}"> style="background-color:LightPink;" </c:if>> ${dashboardStatus.statistics[ERROR]}</td>
+                        <td><a href="SearchMessage.action?channelId=${dashboardStatus.channelId}">${dashboardStatus.channelId}</a></td>
                     </tr>
 
                     <c:forEach items="${dashboardStatus.childStatuses}" var="childStatus">
@@ -63,6 +65,7 @@
                             <td>${childStatus.queued}</td>
                             <td>${childStatus.statistics[SENT]}</td>
                             <td class="errors" <c:if test="${childStatus.statistics[ERROR] != 0}"> style="background-color:LightPink;" </c:if>> ${childStatus.statistics[ERROR]}</td>
+                            <td></td>
                         </tr>
                     </c:forEach>
                 </c:forEach>
